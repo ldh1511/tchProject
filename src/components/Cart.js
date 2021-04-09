@@ -1,17 +1,43 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { firebaseConnect } from '../connect';
 
 function Cart(props) {
     const cart = useSelector(state => state.cart);
-    const getTotalAmount=()=>{
-        let totalAmount=cart.reduce((total,e)=> {return total+=e.amount},0)
+    const step = useSelector(state => state.step);
+    const info=useSelector(state=>state.paymentInfo)
+    const dispatch = useDispatch();
+    useEffect((e) => {
+        const billRef=firebaseConnect.database().ref('bill');
+        let bill={
+            items:[],info:info,time:''
+        };
+        cart.map(ele=>{
+            let item={}
+            item.code=ele.item[0];
+            item.amount=ele.amount;
+            item.size=ele.size[0]
+            item.total=ele.total;
+            bill.items.push(item);
+        })
+        if (step === 2) {
+            let current=new Date();
+            bill.time=current.toLocaleString();
+            billRef.push(bill);
+        }
+    }, [step])
+    const getTotalAmount = () => {
+        let totalAmount = cart.reduce((total, e) => { return total += e.amount }, 0)
         return totalAmount;
     }
-    const getTotal=()=>{
-        let total=cart.reduce((total,e)=> {return total+=e.total},0)
+    const getTotal = () => {
+        let total = cart.reduce((total, e) => { return total += e.total }, 0)
         return total;
     }
-    getTotalAmount();
+    const handleClick = () => {
+        dispatch({ type: "SET_STEP" });
+    }
     const getItem = () => {
         return cart.map((e, i) =>
             <div className="cart-item" key={i}>
@@ -30,9 +56,9 @@ function Cart(props) {
     }
     return (
         <div className="cart">
-            <button>xem giỏ hàng</button>
+            <button onClick={handleClick}>{step === 1 ? 'đặt hàng' : 'xem giỏ hàng'}</button>
             <div className="cart-items">
-               {getItem()}
+                {getItem()}
             </div>
             <div className="cart-fees">
                 <ul>

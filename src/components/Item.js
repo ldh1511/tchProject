@@ -24,7 +24,7 @@ const Item=({data})=>{
     );
     }
     else{
-        return <Redirect to='/product/order'></Redirect>
+        return <Redirect to='order'></Redirect>
     }
 }
 

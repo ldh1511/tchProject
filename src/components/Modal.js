@@ -25,7 +25,13 @@ function Modal(props) {
         dispatch({type:"CHANGE_SIZE", payload:e})
     }
     const handleAddToCart=()=>{
-        dispatch({type:"ADD", payload:modal.item, amount:modal.amount, total:modal.total, size:modal.size})
+        dispatch({type:"ADD", 
+        payload:modal.item, 
+        amount:modal.amount, 
+        total:modal.total, 
+        size:modal.size}
+        )
+        dispatch({type:"MODAL_ACTIVE"});
     }
     const getSize = () => {
         return Object.entries(item.size).reverse().map(e =>

@@ -6,10 +6,7 @@ function OrderHeader(props) {
             <div className="order-logo">
                 <img src={logo} alt="true"></img>
             </div>
-            <div className="address-container">
-                <button>giao ngay</button>
-                <input type="text" name="address" aria-describedby="helpId" placeholder="Nhập địa chỉ giao hàng..."></input>
-            </div>
+            
             <div className="login-area">
                 <button>đăng nhập</button>
                 <div className="cart-icon">

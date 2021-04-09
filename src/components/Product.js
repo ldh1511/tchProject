@@ -20,9 +20,6 @@ function Product(props) {
         })
     }, [])
     const getItem = () => {
-        if (product.search.searchValue.length !== 0) {
-            data = product.search.searchValue;
-        }
         let type = [];
         let newData = [];
         data.map((ele) => type.push(ele[1].type));
