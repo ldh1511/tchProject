@@ -15,7 +15,7 @@ function ProductRight(props) {
                result=i;
            }
         }
-        if(result!=undefined){
+        if(result!==undefined){
            inputRef.current[result].scrollIntoView({block: 'end', behavior: 'smooth'})
         }
         
@@ -23,7 +23,6 @@ function ProductRight(props) {
     const getTitle = (data) => {
         let titleArr = Object.entries(title);
         let x = titleArr.filter((ele) => ele[1].id === data[1][1].type);
-        console.log(x[0][1].name)
         return x[0][1].name;
     }
     const getItem = () => {
@@ -36,6 +35,7 @@ function ProductRight(props) {
             newData.push(x);
             return x;
         })
+        console.log(newData);
         return newData.map((ele, i) =>
             <div ref={el => inputRef.current[i] = el} className="product-container">
                 <h3 >{getTitle(ele)}</h3>

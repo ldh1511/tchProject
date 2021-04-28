@@ -7,8 +7,8 @@ function OrderItem({data}) {
     const handleClick=()=>{
         dispatch({type:"MODAL_ACTIVE"});
         let check=cart.filter(e => e.item[0]===data[0]);
-        if(check.length!=0){
-            dispatch({type:"MODAL_GET_ITEM", payload:check[0].item, amount:check[0].amount, total:check[0].total})
+        if(check.length!==0){
+            dispatch({type:"MODAL_GET_ITEM", payload:check[0].item, amount:check[0].amount, total:check[0].total, img: check[0].item[1].link})
         }
         else{
             dispatch({type:"MODAL_SET_ITEM", payload:data})

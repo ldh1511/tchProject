@@ -25,7 +25,6 @@ const cart = (state = cartInitialState, action) => {
             else {
                 return [...state, newProduct]
             }
-        case "UPDATE":
 
         default:
             return state

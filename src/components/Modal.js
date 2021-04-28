@@ -44,7 +44,7 @@ function Modal(props) {
         <div className="modal">
             <div className="modal-item">
                 <div className="modal-image">
-                    <img src="https://tch-app.s3.ap-southeast-1.amazonaws.com/menufrontend/5b03966a1acd4d5bbd6723a3_cafe-sua-da.jpg" alt="true" />
+                    <img src={modal.img} alt="true" />
                 </div>
                 <div className="modal-info">
                     <h4>{item.name}</h4>

@@ -41,7 +41,7 @@ function Cart(props) {
     }
     const handleChangeAmount=(e)=>{
         dispatch({type:"MODAL_ACTIVE"});
-        dispatch({type:"MODAL_GET_ITEM",payload:e.item, amount:e.amount, total:e.total})
+        dispatch({type:"MODAL_GET_ITEM",payload:e.item, amount:e.amount, total:e.total, img:e.item[1].link})
         console.log(e);
     }
     const getItem = () => {
