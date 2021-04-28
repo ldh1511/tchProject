@@ -9,15 +9,24 @@ import Order from './components/Order';
 import PaymentInfo from './components/PaymentInfo';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
+import { firebaseConnect } from './connect';
+
 function App(props) {
   const step = useSelector(state => state.step);
-  const selected=useSelector((state)=>state.product.selected)
   const dispatch = useDispatch();
   useEffect(() => {
     if (step === 3) {
       dispatch({ type: "RESET_STEP" });
-      dispatch({type:"SELECTED"});
+      dispatch({ type: "SELECTED" });
     }
+    let dataProduct = firebaseConnect.database().ref('product/');
+    dataProduct.on('value', (snapshot) => {
+      dispatch({ type: "SET_PRODUCT", payload: Object.entries(snapshot.val()) });
+    })
+    let classify = firebaseConnect.database().ref('classify/');
+    classify.on('value', (snapshot) => {
+      dispatch({ type: "SET_TYPE", payload: snapshot.val() });
+    })
   }, [step])
   return (
     <BrowserRouter>

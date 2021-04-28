@@ -6,12 +6,15 @@ const modal = (state = modalInitialState, action) => {
         case "MODAL_ACTIVE":
             let active=!state.active
             return {...state, active:active}
-        case "MODAL_ITEM":
+        case "MODAL_SET_ITEM":
             let item=action.payload;
             let amount=1;
             let price=item[1].price;
             let size=Object.entries(item[1].size);
             return {...state, item:item, amount:amount, total:price, size:size[size.length-1] }
+        case "MODAL_GET_ITEM":
+            let itemSelected=action.payload;
+            return {...state, item:itemSelected, amount:action.amount, total:action.total}
         case "CHANGE_AMOUNT":
             let newAmount=action.payload;
             let total=(state.item[1].price + state.size[1])*newAmount;

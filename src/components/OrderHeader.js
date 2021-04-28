@@ -11,7 +11,7 @@ function OrderHeader(props) {
                 <button>đăng nhập</button>
                 <div className="cart-icon">
                     <div className="cart-number">1</div>
-                    <i class="fas fa-shopping-cart"></i>
+                    <i className="fas fa-shopping-cart"></i>
                 </div>
             </div>
         </header>

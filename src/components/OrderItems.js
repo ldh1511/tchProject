@@ -6,10 +6,10 @@ function OrderItems(props) {
     const product = useSelector((state) => state.product);
     const getItem = () => {
         if (product.value.length !== 0) {
-            return product.value.map((ele) => <OrderItem data={ele} />)
+            return product.value.map((ele, i) => <OrderItem data={ele} key={i}/>)
         }
         else {
-            return product.data.map((ele) => <OrderItem data={ele} />)
+            return product.data.map((ele, i) => <OrderItem data={ele} key={i}/>)
         }
     }
     return (

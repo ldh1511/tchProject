@@ -2,7 +2,6 @@ import React from 'react';
 import Cart from './Cart';
 import Oderleft from './Orderleft';
 import OrderHeader from './OrderHeader';
-import Modal from './Modal';
 import { useSelector } from 'react-redux';
 import PopUp from './PopUp';
 

@@ -34,8 +34,8 @@ function Modal(props) {
         dispatch({type:"MODAL_ACTIVE"});
     }
     const getSize = () => {
-        return Object.entries(item.size).reverse().map(e =>
-            <div className="form-check">
+        return Object.entries(item.size).reverse().map((e,i) =>
+            <div className="form-check" key={i}>
                 <input type="checkbox" className="form-check-input" name={e[0]} onClick={()=>handleSelectSize(e)} defaultValue="checkedValue" checked={e[0]===modal.size[0]?true:false}/>{e[0]} {e[1]!==0 ? '(+'+ e[1] + 'đ )': ''}
             </div>
         )

@@ -74,6 +74,10 @@ header ul li a{
 .menu-left{
   text-transform: uppercase;
   min-width: 20%;
+  position: relative;
+}
+.menu-left ul{
+  position: fixed;
 }
 .menu-left ul li{
   display: flex;

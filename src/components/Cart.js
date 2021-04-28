@@ -6,7 +6,7 @@ import { firebaseConnect } from '../connect';
 function Cart(props) {
     const cart = useSelector(state => state.cart);
     const step = useSelector(state => state.step);
-    const info=useSelector(state=>state.paymentInfo)
+    const info=useSelector(state=>state.paymentInfo);
     const dispatch = useDispatch();
     useEffect((e) => {
         const billRef=firebaseConnect.database().ref('bill');
@@ -17,9 +17,10 @@ function Cart(props) {
             let item={}
             item.code=ele.item[0];
             item.amount=ele.amount;
-            item.size=ele.size[0]
+            item.size=ele.size[0];
             item.total=ele.total;
             bill.items.push(item);
+            return true;
         })
         if (step === 2) {
             let current=new Date();
@@ -38,9 +39,14 @@ function Cart(props) {
     const handleClick = () => {
         dispatch({ type: "SET_STEP" });
     }
+    const handleChangeAmount=(e)=>{
+        dispatch({type:"MODAL_ACTIVE"});
+        dispatch({type:"MODAL_GET_ITEM",payload:e.item, amount:e.amount, total:e.total})
+        console.log(e);
+    }
     const getItem = () => {
         return cart.map((e, i) =>
-            <div className="cart-item" key={i}>
+            <div className="cart-item" key={i} onClick={(s)=>handleChangeAmount(e)}>
                 <div className="cart-item-left">
                     <div className="number-box">{e.amount}</div>
                     <div className="cart-item-left-info">

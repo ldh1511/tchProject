@@ -18,13 +18,15 @@ const cart = (state = cartInitialState, action) => {
             };
             if (check !== undefined) {
                 let newState = state;
-                newState[check].amount += newProduct.amount;
-                newState[check].total += newProduct.total;
+                newState[check].amount = newProduct.amount;
+                newState[check].total = newProduct.total;
                 return newState;
             }
             else {
                 return [...state, newProduct]
             }
+        case "UPDATE":
+
         default:
             return state
     }

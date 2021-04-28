@@ -8,6 +8,7 @@ const Item=({data})=>{
     const handleClick=()=>{
         dispatch({type:"SELECTED"});
         dispatch({type:"ADD", payload: data, amount:1, total:data[1].price, size:['S',0]})
+        dispatch({type:"MODAL_SET_ITEM",payload: data})
     }
     if(selected!==true){
     return (

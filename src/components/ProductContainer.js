@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import Item from './Item';
 
@@ -8,24 +8,16 @@ const ProductContainer = ({ data }) => {
         const getItem = () => {
             return data.map((ele, i) => <Item data={ele} key={i} />)
         }
-        const getTitle = () => {
-            let titleArr = Object.entries(title);
-            let x = titleArr.filter((ele) => ele[1].id === data[1][1].type)
-            return x[0][1].name;
-        }
         return (
-            <div className="product-container">
-                <h3>{getTitle()}</h3>
-                <div className="product-box">
-                    {getItem()}
-                </div>
+            <div className="product-box">
+                {getItem()}
             </div>
         );
     }
-    else{
+    else {
         return <div></div>
     }
-}
 
+}
 
 export default ProductContainer;

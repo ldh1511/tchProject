@@ -3,6 +3,7 @@ import cart from "./cart";
 import modal from "./modal";
 import paymentInfo from "./paymentInfo";
 import reducer from "./reducer";
+import scroll from "./scroll";
 import search from "./search";
 import step from "./step";
 
@@ -12,6 +13,7 @@ const rootReducer=combineReducers({
     cart:cart,
     modal:modal,
     step:step,
-    paymentInfo:paymentInfo
+    paymentInfo:paymentInfo,
+    scroll:scroll
 })
 export default rootReducer;
