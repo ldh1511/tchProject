@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../img/logo.png';
+import logo from '../img/logo (2).png';
 function OrderHeader(props) {
     return (
         <header className="order-header">

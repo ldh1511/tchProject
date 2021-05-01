@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from './../img/banner.webp';
+import Image from './../img/background.jpg';
 // import PropTypes from 'prop-types';
 
 // Banner.propTypes = {

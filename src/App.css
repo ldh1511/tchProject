@@ -8,8 +8,8 @@ html, body{
   font-family: 'Open Sans', sans-serif;
 }
 header{
-  padding: 15px 100px;
-  background: rgb(58, 58, 58);
+  padding: 10px 100px;
+  background: #341b07;
 }
 .App{
   position: relative;
@@ -18,14 +18,18 @@ header ul{
   display: flex;
   justify-content: space-between;
   font-size: 17px;
-  font-weight: 500;
+  font-weight: 700;
   color: white;
+  align-items: center;
 }
 header ul li{
   list-style: none;
   text-transform: uppercase;
   cursor: pointer;
   position: relative;
+}
+.header--logo{
+  width: 200px;
 }
 header ul li a{
   text-decoration: none;
@@ -58,6 +62,7 @@ header ul li a{
 }
 .banner img{
   display: block;
+  width: 100%;
 }
 .product{
   position: relative;
@@ -77,11 +82,23 @@ header ul li a{
   text-transform: uppercase;
   min-width: 20%;
   position: relative;
-  background: white;
+  background: #033e38;
+}
+.menu-left ul::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  height: 300px;
+  background: url('./img/tea-leaves.png');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .menu-left ul{
   position: sticky;
   top: 20px;
+  height: 100vh;
 }
 .menu-left ul li{
   display: flex;
@@ -89,6 +106,8 @@ header ul li a{
   list-style: none;
   padding: 15px 10px;
   font-size: 16px;
+  color:white;
+  font-weight: 800;
   cursor: pointer;
 }
 .product-box{
@@ -122,7 +141,7 @@ header ul li a{
 .item h3{
   font-size: 20px;
   font-weight: 700;
-  color: #009e7f;
+  color: #a25c2e;
 
 }
 .item-bottom{
@@ -137,16 +156,16 @@ header ul li a{
   text-transform: uppercase;
   font-weight: 700;
   cursor: pointer;
-  background: #009e7f;
+  background: #a25c2e;
   color: white;
   border-radius: 5px;
-  border: 2px solid #009e7f;
+  border: 2px solid #a25c2e;
   transition: all .5s;
 }
 .btn:hover{
-  border: 2px solid #009e7f;
+  border: 2px solid #a25c2e;
   background: white;
-  color: #009e7f;
+  color: #a25c2e;
 }
 .product-right{
   display: flex;
@@ -201,7 +220,7 @@ header ul li a{
 .cart-number{
   width: 20px;
   height: 20px;
-  background: #009e7f;
+  background: #a25c2e;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -298,12 +317,12 @@ header ul li a{
 .select-icon{
   width: 30px;
   height: 30px;
-  border: 2px solid #009e7f;
+  border: 2px solid #a25c2e;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  color: #009e7f;
+  color: #a25c2e;
   cursor: pointer;
 }
 .cart{
@@ -319,7 +338,7 @@ header ul li a{
   padding: 15px;
   font-size: 14px;
   text-transform: uppercase;
-  background: #009e7f;
+  background: #a25c2e;
   color: white;
   font-weight: 600;
   border-radius: 5px;
@@ -341,7 +360,7 @@ header ul li a{
 }
 .number-box{
   width: 25px;
-  background: #009e7f;
+  background: #a25c2e;
   color: white;
   font-weight: 500;
   display: flex;
@@ -485,7 +504,7 @@ header ul li a{
   align-items: center;
   border-radius: 50%;
   font-size: 20px;
-  color: #009e7f;
+  color: #a25c2e;
   cursor: pointer;
 }
 .modal-amount .amount{
@@ -499,7 +518,7 @@ header ul li a{
   width: 45%;
   display: flex;
   justify-content: space-between;
-  background: #009e7f;
+  background: #a25c2e;
   color: white;
   border-radius: 5px;
 }
@@ -572,4 +591,148 @@ header ul li a{
 .btn-container{
   display: flex;
   justify-content: space-between;
+}
+.item-pages{
+  overflow-y: scroll;
+}
+.item-pages-container{
+  display: flex;
+}
+.item-pages-left{
+  overflow: hidden;
+}
+.item-pages-left{
+  flex: 3;
+}
+.item-pages-center{
+  flex: 1;
+  background: white;
+  position: relative;
+}
+
+.item-pages-center ul{
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+.item-pages-center ul li{
+  list-style: none;
+  text-align: center;
+  margin: 20px 0;
+  text-transform: uppercase;
+  font-weight: lighter;
+  letter-spacing: 5px;
+  cursor: pointer;
+  transition: all .3s;
+}
+.item-pages-center ul li:hover{
+  color: #ababab;
+}
+.item-pages-right{
+  flex: 3;
+  padding: 20px;
+}
+.item-pages-right h1{
+  text-transform: uppercase;
+}
+.item-pages-left{
+  position: relative;
+}
+.item-pages-left img{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.item-pages-block{
+  margin: 30px 0;
+}
+.item-pages-block h4{
+  text-transform: uppercase;
+  font-weight: lighter;
+}
+.item-pages-block input{
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+  margin-top: 15px;
+  overflow: hidden;
+}
+.item-pages-right p{
+  margin: 15px 15px 30px 0px;
+  font-weight: lighter;
+  line-height: 24px;
+  letter-spacing: 1px;
+  font-size: 15px;
+}
+.form-size{
+  display: flex;
+  margin-top: 30px;
+}
+.form-size .form-check{
+  padding: 20px;
+  border: 1px solid #e8e8e8;
+  display: flex;
+  align-items: baseline;;
+  margin: 0;
+  border-right: none;
+  flex: 1;
+}
+.form-size .form-check input{
+  margin: 0;
+  margin-right: 10px;
+}
+.form-size .form-check:last-child{
+  border-right: 1px solid #e8e8e8;
+}
+.item-pages-block h3{
+  font-size: 24px;
+}
+.item-pages--btn{
+  border: none;
+  outline: none;
+  font-family: inherit;
+  padding: 15px;
+  background: white;
+  font-size: 14px;
+  border-radius: 30px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+  z-index: 9999;
+}
+.item-pages--btn::after{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #341b07;
+  z-index: -1;
+  border-radius: 50%;
+}
+.item-pages--btn:hover{
+  color: white;
+}
+.item-pages--btn:hover::after{
+  animation: ani1 2s forwards;
+}
+@keyframes ani1{
+  from{
+    width: 0;
+    height: 0;
+  }
+  to{
+    width: 200px;
+    height: 200px;
+  }
+}
+.item-pages-slider{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
