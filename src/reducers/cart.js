@@ -20,12 +20,12 @@ const cart = (state = cartInitialState, action) => {
                 let newState = state;
                 newState[check].amount = newProduct.amount;
                 newState[check].total = newProduct.total;
+                newState[check].size= newProduct.size;
                 return newState;
             }
             else {
                 return [...state, newProduct]
             }
-
         default:
             return state
     }

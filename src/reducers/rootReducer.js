@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import cart from "./cart";
+import item from "./itemSelected";
 import modal from "./modal";
 import paymentInfo from "./paymentInfo";
 import reducer from "./reducer";
@@ -14,6 +15,7 @@ const rootReducer=combineReducers({
     modal:modal,
     step:step,
     paymentInfo:paymentInfo,
-    scroll:scroll
+    scroll:scroll,
+    itemSelected:item
 })
 export default rootReducer;

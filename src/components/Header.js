@@ -13,7 +13,7 @@ const Header = (props) => {
         <header>
             <ul>
                 <li><NavLink to='/'>
-                    <img src={logo} className="header--logo"/>
+                    <img src={logo} className="header--logo" alt=""/>
                 </NavLink></li>
                 <li><NavLink to='/brand-story'>câu chuyện thương hiệu</NavLink></li>
                 <li><NavLink to='/product'>sản phẩm</NavLink></li>
