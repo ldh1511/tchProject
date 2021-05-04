@@ -35,7 +35,6 @@ function ProductRight(props) {
             newData.push(x);
             return x;
         })
-        console.log(newData);
         return newData.map((ele, i) =>
             <div ref={el => inputRef.current[i] = el} className="product-container">
                 <h3 >{getTitle(ele)}</h3>

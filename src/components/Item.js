@@ -32,7 +32,7 @@ const Item = ({ data }) => {
         );
     }
     else {
-        return <Redirect to='order'></Redirect>
+        return <Redirect from="item" to='order'></Redirect>
     }
 }
 
