@@ -11,29 +11,26 @@ const Item = ({ data }) => {
         dispatch({ type: "ADD", payload: data, amount: 1, total: data[1].price, size: ['S', 0] })
         dispatch({ type: "MODAL_SET_ITEM", payload: data })
     }
-
-    if (selected !== true) {
-        return (
-            <div className="item">
-                <div className="item-img">
-                    <NavLink to={`/item/${data[1].id}`}>
+    return (
+        <div className="item">
+            <div className="item-img">
+                <NavLink to={`/item/${data[1].id}`}>
                     <img src={data[1].link} alt=""></img>
-                    </NavLink>
-                </div>
-                <h4>{data[1].name}</h4>
-                <div className="item-bottom">
-                    <h3>{data[1].price} đ</h3>
+                </NavLink>
+            </div>
+            <h4>{data[1].name}</h4>
+            <div className="item-bottom">
+                <h3>{data[1].price} đ</h3>
+                <NavLink to="/order">
                     <button className="btn" onClick={handleClick}>
                         Mua ngay
-                    </button>
-                </div>
-
+                        </button>
+                </NavLink>
             </div>
-        );
-    }
-    else {
-        return <Redirect from="item" to='order'></Redirect>
-    }
+
+        </div>
+    );
+
 }
 
 

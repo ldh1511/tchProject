@@ -11,6 +11,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { firebaseConnect } from './connect';
 import Itempage from './components/Itempage';
+import Header from './components/Header';
 
 function App(props) {
   const step = useSelector(state => state.step);
@@ -36,7 +37,7 @@ function App(props) {
           <Route exact path='/' component={() => <Home />}></Route>
           <Route path='/brand-story' component={() => <BrandStory />}></Route>
           <Route exact path='/product' component={() => <Product />}></Route>
-          <Route exact path='/order' component={() => {
+          <Route  path='/order' component={() => {
             return step === 0 ? (<Order />) : (<Redirect to='/payment' />)
           }}></Route>
           <Route exact path='/payment' component={() => {

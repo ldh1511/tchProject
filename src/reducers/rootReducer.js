@@ -7,6 +7,7 @@ import reducer from "./reducer";
 import scroll from "./scroll";
 import search from "./search";
 import step from "./step";
+import toggleCart from "./toggleCart";
 
 const rootReducer=combineReducers({
     product:reducer,
@@ -16,6 +17,7 @@ const rootReducer=combineReducers({
     step:step,
     paymentInfo:paymentInfo,
     scroll:scroll,
-    itemSelected:item
+    itemSelected:item,
+    toggleCart:toggleCart
 })
 export default rootReducer;
