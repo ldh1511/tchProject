@@ -15,7 +15,8 @@ function Itempage(props) {
         dispatch({ // Sản phảm
             type: "SELECT_ITEM",
             item: match[0],
-            total: match[0][1].price
+            total: match[0][1].price,
+            size:Object.entries(match[0][1].size).reverse()[0]
         })
     }, [])
     const HandleClickLiEle = (e) => {
