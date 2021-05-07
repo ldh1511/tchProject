@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { NavLink, Redirect } from 'react-router-dom';
-import SearchBox from './SearchBox';
+import { NavLink } from 'react-router-dom';
+// import SearchBox from './SearchBox';
 import logo from '../img/logo (2).png'
 import { useSelector } from 'react-redux';
 import DropDownCart from './DropDownCart';

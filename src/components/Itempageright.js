@@ -13,20 +13,36 @@ function Itempageright({ match }) {
             type: "CHANGE_SIZE_ITEM",
             item: match[0],
             total: (match[0][1].price + parseInt(e[1])) * parseInt(itemSelected.amount),
-            size: e
+            size: e,
         })
     }
     const handleSelectAmount = (e) => {
         console.log(e.target.value);
-        dispatch({ type: "CHANGE_AMOUNT_ITEM", amount: parseInt(e.target.value), price: match[0][1].price })
+        dispatch({
+            type: "CHANGE_AMOUNT_ITEM",
+            amount: parseInt(e.target.value),
+            price: match[0][1].price
+        })
     }
     const handleAddToCart = () => {
-        dispatch({ type: "ADD", payload: match[0], amount: itemSelected.amount, total: itemSelected.total, size: itemSelected.size })
+        dispatch({
+            type: "ADD",
+            payload: match[0],
+            amount: itemSelected.amount,
+            total: itemSelected.total,
+            size: itemSelected.size
+        })
     }
     const getSize = () => {
         return size.map((e, i) =>
             <div key={i} className="form-check">
-                <input type="checkbox" className="form-check-input" name={e[0]} id="" value="checkedValue" defaultValue="0" onClick={() => handleSelectSize(e)} checked={e[0] === itemSelected.size[0] ? true : false} />
+                <input type="checkbox"
+                    className="form-check-input"
+                    name={e[0]}
+                    value="checkedValue"
+                    onClick={() => handleSelectSize(e)}
+                    checked={e[0] === itemSelected.size[0] ? true : false}
+                />
                 {`${e[0]} (+${e[1]}đ)`}
             </div>
         )
@@ -56,7 +72,13 @@ function Itempageright({ match }) {
                 <p>{match[0][1].description}</p>
                 <div className="item-pages-block">
                     <h4>Số lượng</h4>
-                    <input className="form-control" name="quantity" type="number" value={itemSelected.amount} onChange={(e) => handleSelectAmount(e)}></input>
+                    <input
+                        className="form-control"
+                        name="quantity"
+                        type="number"
+                        value={itemSelected.amount}
+                        onChange={(e) => handleSelectAmount(e)}
+                    />
                 </div>
                 <div className="item-pages-block">
                     <h4>Size</h4>

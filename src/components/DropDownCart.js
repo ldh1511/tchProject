@@ -1,11 +1,8 @@
-import React, { createFactory, useEffect, useRef } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 
 function DropDownCart(props) {
     const cart = useSelector(state => state.cart);
-    const toggleCart = useSelector(state => state.toggleCart);
-
     const getItem = () => {
         if (cart.length !== 0) {
             return cart.map((e, i) =>

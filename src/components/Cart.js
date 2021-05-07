@@ -40,9 +40,16 @@ function Cart(props) {
         dispatch({ type: "SET_STEP" });
     }
     const handleChangeAmount=(e)=>{
-        dispatch({type:"MODAL_ACTIVE"});
-        dispatch({type:"MODAL_GET_ITEM",payload:e.item, amount:e.amount, total:e.total, img:e.item[1].link})
-        console.log(e);
+        dispatch({type:"MODAL_ACTIVE"}); // Mở modal
+        dispatch({
+            type:"MODAL_GET_ITEM",
+            payload:e.item, 
+            amount:e.amount, 
+            total:e.total, 
+            img:e.item[1].link,
+            size: e.size
+        })
+        console.log(e)
     }
     const getItem = () => {
         return cart.map((e, i) =>

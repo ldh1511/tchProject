@@ -1,19 +1,26 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-function OrderItem({data}) {
-    const dispatch=useDispatch();
-    const cart=useSelector(state=>state.cart);
-    const handleClick=()=>{
-        dispatch({type:"MODAL_ACTIVE"});
-        let check=cart.filter(e => e.item[0]===data[0]);
-        if(check.length!==0){
-            dispatch({type:"MODAL_GET_ITEM", payload:check[0].item, amount:check[0].amount, total:check[0].total, img: check[0].item[1].link})
+function OrderItem({ data }) {
+    const dispatch = useDispatch();
+    const cart = useSelector(state => state.cart);
+    const handleClick = () => {
+        dispatch({ type: "MODAL_ACTIVE" });
+        let check = cart.filter(e => e.item[0] === data[0]);
+        if (check.length !== 0) {
+            dispatch({
+                type: "MODAL_GET_ITEM",
+                payload: check[0].item,
+                amount: check[0].amount,
+                total: check[0].total,
+                img: check[0].item[1].link,
+                size: check[0].size
+            })
         }
-        else{
-            dispatch({type:"MODAL_SET_ITEM", payload:data})
+        else {
+            dispatch({ type: "MODAL_SET_ITEM", payload: data })
         }
-        
+
     }
     return (
         <div className="order-item">

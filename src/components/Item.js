@@ -1,15 +1,18 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 const Item = ({ data }) => {
-    const selected = useSelector((state) => state.product.selected);
     const dispatch = useDispatch();
     const handleClick = () => {
-        dispatch({ type: "SELECTED" });
-        dispatch({ type: "ADD", payload: data, amount: 1, total: data[1].price, size: ['S', 0] })
-        dispatch({ type: "MODAL_SET_ITEM", payload: data })
+        dispatch({ type: "SELECTED" }); //Thay đổi trạng thái
+        dispatch({  // Thêm sản phẩm vào giỏ hàng
+            type: "ADD", 
+            payload: data, 
+            amount: 1, 
+            total: data[1].price, 
+            size: ['S', 0] 
+        })
     }
     return (
         <div className="item">

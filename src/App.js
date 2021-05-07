@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { firebaseConnect } from './connect';
 import Itempage from './components/Itempage';
-import Header from './components/Header';
+// import Header from './components/Header';
 
 function App(props) {
   const step = useSelector(state => state.step);

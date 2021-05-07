@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from './Header';
 import Itempageright from './Itempageright';
@@ -6,11 +6,18 @@ import Itempageright from './Itempageright';
 function Itempage(props) {
     const product = useSelector(state => state.product.data);
     const dispatch = useDispatch();
-    const liArr = ['Đặt ngay', 'Giới thiệu', 'Liên quan'];
-    let slug = props.location.pathname;
+    const liArr = ['Đặt ngay', 'Giới thiệu', 'Liên quan']; // Danh sách các thẻ li
+    let slug = props.location.pathname; // id của sản phẩm trên url
     slug = slug.split('/');
     let match = product.filter(e => e[1].id === parseInt(slug[slug.length - 1]));
-
+    // Lấy ra sản phẩm phù hợp với id trên url
+    useEffect(() => {
+        dispatch({ // Sản phảm
+            type: "SELECT_ITEM",
+            item: match[0],
+            total: match[0][1].price
+        })
+    }, [])
     const HandleClickLiEle = (e) => {
         dispatch({ type: "CHANGE_LOCATION_ITEM", loc: e })
     }

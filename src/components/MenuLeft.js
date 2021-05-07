@@ -4,14 +4,18 @@ import { useSelector } from 'react-redux';
 
 const MenuLeft = (props) => {
     const data = useSelector((state) => state.product.type);
-    const dispatch=useDispatch();
-    const handleScroll=(e)=>{
-        dispatch({type:"SET_NAME", payload:e})
+    const dispatch = useDispatch();
+    const handleScroll = (e) => {
+        dispatch({ type: "SET_NAME", payload: e })
     }
     if (data) {
         let dataArr = Object.entries(data);
         const getTitle = () => {
-            return dataArr.map((ele, i) => <li onClick={(e)=>handleScroll(ele[1].name)} key={i}>{ele[1].name}</li>)
+            return dataArr.map((ele, i) =>
+                <li onClick={(e) => handleScroll(ele[1].name)} key={i}>
+                    {ele[1].name}
+                </li>
+            )
         }
         return (
             <div className="menu-left">
@@ -21,7 +25,7 @@ const MenuLeft = (props) => {
             </div>
         );
     }
-    else{
+    else {
         return <div></div>
     }
 }

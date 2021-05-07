@@ -36,9 +36,9 @@ function ProductRight(props) {
             return x;
         })
         return newData.map((ele, i) =>
-            <div ref={el => inputRef.current[i] = el} className="product-container">
+            <div ref={el => inputRef.current[i] = el} className="product-container" key={i}>
                 <h3 >{getTitle(ele)}</h3>
-                <ProductContainer data={ele} key={i} />
+                <ProductContainer data={ele} />
             </div>
         )
     }
