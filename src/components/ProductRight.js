@@ -8,18 +8,19 @@ function ProductRight(props) {
     const title = useSelector((state) => state.product.type);
     const scrollname = useSelector((state) => state.scroll.scrollName);
     const inputRef = useRef([]);
-    useEffect(()=>{
+    useEffect(() => {
         let result;
         for (let i = 0; i < inputRef.current.length; i++) {
-           if(inputRef.current[i].children[0].textContent===scrollname){  
-               result=i;
-           }
+            console.log(inputRef.current[i].children[0].children[0])
+            if (inputRef.current[i].children[0].children[0].textContent === scrollname) {
+                result = i;
+            }
         }
-        if(result!==undefined){
-           inputRef.current[result].scrollIntoView({block: 'end', behavior: 'smooth'})
+        if (result !== undefined) {
+            inputRef.current[result].scrollIntoView({ block: 'end', behavior: 'smooth' })
         }
-        
-    },[scrollname])
+
+    }, [scrollname])
     const getTitle = (data) => {
         let titleArr = Object.entries(title);
         let x = titleArr.filter((ele) => ele[1].id === data[1][1].type);
@@ -37,7 +38,10 @@ function ProductRight(props) {
         })
         return newData.map((ele, i) =>
             <div ref={el => inputRef.current[i] = el} className="product-container" key={i}>
-                <h3 >{getTitle(ele)}</h3>
+                <div className="product-title">
+                    <h3>{getTitle(ele)}</h3>
+                    <button className="product-more-btn">Xem thêm</button>
+                </div>
                 <ProductContainer data={ele} />
             </div>
         )

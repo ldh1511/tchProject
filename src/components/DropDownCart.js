@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-
+import box from '../img/box.gif';
 function DropDownCart(props) {
     const cart = useSelector(state => state.cart);
     const getItem = () => {
@@ -21,7 +21,10 @@ function DropDownCart(props) {
             )
         }
         else {
-            return <li>Bạn chưa chọn sản phẩm nào !</li>
+            return <li className="empty-container">
+                <img src={box} alt=""></img>
+                Bạn chưa chọn sản phẩm nào !
+            </li>
         }
     }
     return (
@@ -29,9 +32,13 @@ function DropDownCart(props) {
             <ul>
                 {getItem()}
             </ul>
+            {cart.length !== 0?
                 <div className="dropdown-cart--payment">
                     <h4>Thanh toán</h4>
                 </div>
+            : 
+                true
+            }
 
         </div>
     );

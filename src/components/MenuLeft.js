@@ -13,6 +13,7 @@ const MenuLeft = (props) => {
         const getTitle = () => {
             return dataArr.map((ele, i) =>
                 <li onClick={(e) => handleScroll(ele[1].name)} key={i}>
+                    <i class="fas fa-leaf"></i>
                     {ele[1].name}
                 </li>
             )

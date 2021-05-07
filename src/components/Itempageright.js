@@ -1,13 +1,16 @@
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Item from './Item';
+import cartGif from '../img/cart-checkout.gif';
 
 function Itempageright({ match }) {
     let size = Object.entries(match[0][1].size);
     const dispatch = useDispatch();
     const itemSelected = useSelector((state) => state.itemSelected);
     const item = useSelector((state) => state.product.data);
+    const cart=useSelector((state)=>state.cart);
     const elRef = useRef([]);
+    const cartRef=useRef();
     const handleSelectSize = (e) => {
         dispatch({
             type: "CHANGE_SIZE_ITEM",
@@ -32,6 +35,7 @@ function Itempageright({ match }) {
             total: itemSelected.total,
             size: itemSelected.size
         })
+        cartRef.current.className="active";
     }
     const getSize = () => {
         return size.map((e, i) =>
@@ -65,6 +69,9 @@ function Itempageright({ match }) {
         }
         getRelatedItem();
     }, [itemSelected.loc])
+    useEffect(()=>{
+        
+    },[cart.length])
     return (
         <div className="item-pages-right">
             <div className="item-pages-right-box" ref={el => elRef.current[0] = el}>
@@ -87,11 +94,14 @@ function Itempageright({ match }) {
                     </div>
                 </div>
                 <div className="item-pages-block">
-                    <h3>{match[0][1].price} đ</h3>
+                    <h3>{itemSelected.total} đ</h3>
                 </div>
-                <button className="item-pages--btn" onClick={handleAddToCart}>
-                    Thêm vào giỏ hàng
-            </button>
+                <div className="item-pages-btn-container">
+                    <button className="item-pages--btn" onClick={handleAddToCart}>
+                        Thêm vào giỏ hàng
+                </button>
+                    <img alt="" src={cartGif} ref={cartRef}></img>
+                </div>
             </div>
             <div className="item-pages-right-box" ref={el => elRef.current[1] = el}>
                 <h1>Sự mộc mạc trở thành dấu ấn Việt</h1>

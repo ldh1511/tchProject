@@ -69,6 +69,9 @@ function Modal(props) {
                 <div className="modal-btn" onClick={handleClick}>
                     <i className="fas fa-times"></i>
                 </div>
+                <div className="modal-title">
+                    <h3>{item.name}</h3>
+                </div>
             </div>
             <div className="modal-type">
                 <h4>Size</h4>
