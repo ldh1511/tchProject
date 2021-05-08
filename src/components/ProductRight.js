@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import ProductContainer from './ProductContainer';
 
 function ProductRight(props) {
@@ -40,7 +41,9 @@ function ProductRight(props) {
             <div ref={el => inputRef.current[i] = el} className="product-container" key={i}>
                 <div className="product-title">
                     <h3>{getTitle(ele)}</h3>
-                    <button className="product-more-btn">Xem thêm</button>
+                    <NavLink to={`/category/${ele[0][1].type}`}>
+                        <button className="product-more-btn">Xem thêm</button>
+                    </NavLink>
                 </div>
                 <ProductContainer data={ele} />
             </div>

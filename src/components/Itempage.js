@@ -29,7 +29,10 @@ function Itempage(props) {
                 <div className="item-pages-container">
                     <div className="item-pages-left">
                         <ul>
-                            <li><img src={match[0][1].link} alt=""></img></li>
+                            <li>
+                                <img src={match[0][1].link} alt=""></img>
+                               
+                            </li>
                             <li><img src={match[0][1].link} alt=""></img></li>
                             <li><img src={match[0][1].link} alt=""></img></li>
                         </ul>

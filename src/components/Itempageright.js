@@ -47,7 +47,7 @@ function Itempageright({ match }) {
                     onClick={() => handleSelectSize(e)}
                     checked={e[0] === itemSelected.size[0] ? true : false}
                 />
-                {`${e[0]} (+${e[1]}đ)`}
+                {`${e[0]} (+${e[1]} đ)`}
             </div>
         )
     }

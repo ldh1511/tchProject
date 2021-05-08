@@ -26,6 +26,11 @@ const cart = (state = cartInitialState, action) => {
             else {
                 return [...state, newProduct]
             }
+        case "REMOVE_ITEM":
+            let result=state.filter(e=>e.item[1].id!==action.match)
+            return result;
+        case "SET_EMPTY":
+            return [];
         default:
             return state
     }

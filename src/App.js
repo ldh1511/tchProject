@@ -11,6 +11,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { firebaseConnect } from './connect';
 import Itempage from './components/Itempage';
+import CategoryPage from './components/CategoryPage';
 // import Header from './components/Header';
 
 function App(props) {
@@ -44,6 +45,7 @@ function App(props) {
             return step < 3 ? (<PaymentInfo />) : (<Redirect to='/' />)
           }}></Route>
           <Route path='/store' component={() => <Store />}></Route>
+          <Route path='/category' component={CategoryPage}></Route>
           <Route path='/item' component={Itempage}></Route>
         </Switch>
       </div>

@@ -18,7 +18,7 @@ const Header = (props) => {
     }
     const getDropDownCart=()=>{
         if(toggleCart===true){
-            return <NavLink to="/order"><DropDownCart/></NavLink>
+            return <DropDownCart/>
         }
         else{
             return <div></div>

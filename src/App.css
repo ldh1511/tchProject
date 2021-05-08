@@ -96,13 +96,12 @@ header ul li a{
   align-items: center;
 }
 .product-more-btn{
-  border: none;
+  border: 2px solid #033e38;
   font-size: inherit;
   background: #033e38;
   color: white;
   padding: 10px 30px;
   border-radius: 34px;
-  height: -moz-fit-content;
   height: fit-content;
   font-weight: 700;
   text-transform: uppercase;
@@ -110,6 +109,36 @@ header ul li a{
   display: block;
   width: fit-content;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 999;
+}
+
+.product-more-btn::after{
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background: #f7f7f7;
+  transform: translateX(-102%);
+  transition: all .8s;
+  z-index: -1;
+}
+.product-more-btn:hover{
+  color: black;
+}
+.product-more-btn:hover:after{
+  transform: translateX(0);
+}
+@keyframes btn_ani1{
+  from{
+    transform: translateX(-100%);
+  }
+  to{
+    transform: translateX(100%);
+  }
 }
 .menu-left{
   text-transform: uppercase;
@@ -142,9 +171,18 @@ header ul li a{
   color:white;
   font-weight: 800;
   cursor: pointer;
+  transition: all .4s;
+}
+.menu-left ul li:hover{
+  color: #16b5a5;
+}
+.menu-left ul li:hover i{
+  color: #16b5a5;
+  transform: rotateZ(90deg);
 }
 .menu-left ul li i{
   margin-right: 10px;
+  transition: all .4s;
 }
 .product-box{
   display: flex;
@@ -401,6 +439,12 @@ header ul li a{
   align-items: center;
   margin: 10px 0px;
 }
+.cart-item i{
+  transition: all .3s;
+}
+.cart-item i:hover{
+  color: #c5723b;
+}
 .cart-item-left{
   display: flex;
   align-items: center;
@@ -607,6 +651,7 @@ header ul li a{
   background: white;
   padding: 15px;
   margin-bottom: 15px;
+  border-radius: 8px;
 }
 .form-group{
   display: flex;
@@ -618,8 +663,11 @@ header ul li a{
   margin: 10px 0;
   font-size: 16px;
   font-family: inherit;
-  padding: 5px;
-  border: 1px solid gray;
+  padding: 10px;
+  border: none;
+  background: #f7f7f7;
+  border-radius: 5px;
+  outline: none;
 }
 .payment-bottom .form-check{
   display: flex;
@@ -651,6 +699,14 @@ header ul li a{
   justify-content: space-between;
   flex-direction: column;
 }
+.popup-top{
+  display: flex;
+  align-items: center;
+}
+.popup-top img{
+  width: 100px;
+  height: 100px;
+}
 .popup button{
   font-family: inherit;
   outline: none;
@@ -659,6 +715,13 @@ header ul li a{
   width: calc(50% - 10px);
   padding: 10px;
   border-radius: 5px;
+  cursor: pointer;
+  transition: all .4s;
+  font-size: 15px;
+}
+.popup button:hover{
+  background: #033e38;
+  color: white;
 }
 .btn-container{
   display: flex;
@@ -718,7 +781,7 @@ header ul li a{
 .item-pages-right-box{
   padding: 20px;
   height: 100vh;
-  padding-top: 100px;
+  padding-top: 125px;
 }
 .item-pages-right-box small{
   font-family: inherit;
@@ -729,9 +792,18 @@ header ul li a{
 }
 .item-pages-right h1{
   text-transform: uppercase;
+  font-weight: 900;
 }
 .item-pages-left{
   position: relative;
+}
+.item-pages-left li{
+  position: relative;
+}
+.item-pages-left li h1{
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .item-pages-left img{
   width: 100%;
@@ -776,13 +848,12 @@ header ul li a{
 }
 .form-size{
   display: flex;
-  margin-top: 30px;
+  margin-top: 15px;
 }
 .form-size .form-check{
   padding: 20px;
   display: flex;
   align-items: baseline;
-  margin: 5px;
   border-right: none;
   flex: 1 1;
   background: #e8e8e8;
@@ -892,4 +963,47 @@ header ul li a{
   width: 100px;
   height: 100px;
   margin-bottom: 15px;
+}
+.category{
+  max-width: 1150px;
+  margin: 0 auto;
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+.category-block{
+  flex: 5;
+}
+.category-block:first-child{
+  flex: 1 1;
+  margin-right: 19px;
+  background: white;
+}
+.category-block-top{
+  background: white;
+  padding: 20px;
+  position: relative;
+  height: 145px;
+}
+.category-block-top h1{
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 55px;
+  z-index: 99;
+  position: relative;
+}
+.category-title-back{
+  position: absolute;
+  top: 25%;
+  left: 10%;
+}
+.category-title-back h2{
+  text-transform: uppercase;
+  font-weight: 900;
+  color: #f7f7f7;
+  font-size: 70px;
+}
+.category-block-bottom{
+  margin-top: 19px;
+  background: white;
 }
