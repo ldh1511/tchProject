@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Cart from './Cart';
 import OrderHeader from './OrderHeader';
 import Payment from './Payment';
@@ -12,6 +12,9 @@ function PaymentInfo(props) {
             return <PopUp/>
         }
     }
+    useEffect(()=>{
+        console.log("tesses gcehan")
+    },[])
     return (
         <div>
             <OrderHeader />

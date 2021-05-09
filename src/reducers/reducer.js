@@ -2,6 +2,7 @@ const defaultState = {
     data: [],
     active: false,
     selected:false,
+    loading:true,
     value:[]
 }
 const reducer = (state = defaultState, action) => {
@@ -24,6 +25,8 @@ const reducer = (state = defaultState, action) => {
             return { ...state, active: activeState }
         case "SELECTED":
             return {...state, selected:!state.selected}
+        case "SET_LOADING":
+            return{...state, loading: !state.loading}
         default:
             return state
     }

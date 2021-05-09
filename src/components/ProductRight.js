@@ -6,8 +6,8 @@ import ProductContainer from './ProductContainer';
 function ProductRight(props) {
     const product = useSelector((state) => state);
     let data = product.product.data;
-    const title = useSelector((state) => state.product.type);
-    const scrollname = useSelector((state) => state.scroll.scrollName);
+    const title = product.product.type;
+    const scrollname = product.scroll.scrollName;
     const inputRef = useRef([]);
     useEffect(() => {
         let result;
@@ -50,9 +50,11 @@ function ProductRight(props) {
         )
     }
     return (
-        <div className="product-right">
-            {getItem()}
-        </div>
+        
+            <div className="product-right">
+                {getItem()}
+            </div>
+        
     );
 }
 

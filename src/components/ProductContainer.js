@@ -4,10 +4,15 @@ import Item from './Item';
 
 const ProductContainer = ({ data }) => {
     const title = useSelector((state) => state.product.type);
-    
+
     if (title) {
         const getItem = () => {
-            return data.map((ele, i) => <Item data={ele} key={i} />)
+            return data.map((ele, i) => {
+                if (i < 3) {
+                    return <Item data={ele} key={i} />
+                }
+                return true
+            })
         }
         return (
             <div className="product-box">
