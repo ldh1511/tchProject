@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Home from './components/Home';
@@ -15,6 +15,7 @@ import Itempage from './components/Itempage';
 import CategoryPage from './components/CategoryPage';
 import LoginPage from './components/LoginPage';
 import userPage from './components/userPage';
+import addressApi from './api/addressApi';
 // import Header from './components/Header';
 const config = {
   apiKey: 'AIzaSyDXPLduefu6MLOF9pRsmqhdZJn5mF8PE2w',
@@ -26,8 +27,23 @@ if (!firebase.apps.length) {
   firebase.app(); // if already initialized, use that one
 }
 function App(props) {
+  const [productList, setProductList]=useState([]);
   const step = useSelector(state => state.step);
   const dispatch = useDispatch();
+  // Lấy dữ liệu tỉnh thành
+  useEffect(()=>{
+    const fetchAddressDataList=async ()=>{
+      try {
+        const response= await addressApi.getAllCity();
+        dispatch({type:"SET_CITY", city:response.results});
+      }
+      catch (error){
+        console.log(error)
+      }
+    }
+    fetchAddressDataList()
+  },[])
+
   useEffect(() => {
     if (step === 3) {
       dispatch({ type: "RESET_STEP" });
@@ -61,6 +77,7 @@ function App(props) {
     });
     return () => unregisterAuthObserver();
   },[])
+  
   return (
     <BrowserRouter>
       <div className="App">

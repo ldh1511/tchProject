@@ -1135,6 +1135,9 @@ header ul li a{
   border-radius: 10px;
   cursor: pointer;
 }
+.user-category ul li a{
+  text-decoration: none;
+}
 .user-category ul li i{
   margin-right: 10px;
   width: 15px;
@@ -1154,6 +1157,17 @@ header ul li a{
   margin-bottom: 30px;
   font-weight: 500;
 }
+.user-info .payment-choices .form-check{
+  display: flex;
+  flex-direction: column;
+  background: none;
+}
+.user-info .payment-choices .form-check .form-check-label{
+  padding: 10px;
+  background: #f7f7f7;
+  margin-bottom: 20px;
+  border-radius: 6px;
+}
 .user-addr-form .form-group{
   margin-bottom: 15px;
   display: flex;
@@ -1172,7 +1186,7 @@ header ul li a{
   background: #f7f7f7;
   border-radius: 4px;
 }
-.user-addr-form button{
+.user-btn{
   font-family: inherit;
     font-size: inherit;
     padding: 10px 25px;
@@ -1180,7 +1194,7 @@ header ul li a{
     border: none;
     border-radius: 5px;
     font-weight: 700;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 .btn-login{
   font-family: inherit;
@@ -1191,4 +1205,79 @@ header ul li a{
   font-size: 15px;
   font-weight: 500;
   border-radius: 7px;
+}
+/* .user-orders{}
+.user-orders ul{} */
+.user-orders ul li{
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+  align-items: center;
+  flex-direction: column;
+}
+.user-orders-top{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  background: #16b5a5;
+  padding: 15px;
+  margin: 5px;
+  border-radius: 9px;
+}
+.user-orders-bottom{
+  background: white;
+  width: 100%;
+  border-radius: 9px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 0px;
+  font-family: 'Segoe UI',sans-serif;
+  transition: all .5s ease-in-out;
+  height: 0;
+  overflow: hidden;
+}
+.user-orders ul li:hover .user-orders-bottom{
+  height: 280px;
+}
+.user-orders-bottom h4{
+  font-weight: 400;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+.user-orders-bottom h4 span{
+  font-weight: 500;
+}
+.user-orders-box{
+  display: flex;
+  align-items: center;
+}
+.user-orders-box:first-child {
+  font-family: 'Segoe UI', sans-serif;
+}
+.user-orders-box span{
+  margin-right: 10px;
+  font-weight: 500;
+}
+.user-orders-box i:first-child{
+  margin-right: 10px;
+}
+.user-orders-bottom .user-orders-detail .cart-fees ul li{
+  flex-direction: row;
+  font-size: 15px;
+  font-weight: 500;
+}
+.user-orders-bottom .user-orders-detail .cart-items{
+  margin: 5px 0;
+  padding: 0px 5px;
+}
+.user-orders-bottom .user-orders-detail .cart-total{
+  margin: 0;
+  padding: 0px 5px;
+}
+.user-orders-bottom .user-orders-detail .cart-fees ul{
+  margin-bottom: 0;
+  padding: 0px 5px;
 }

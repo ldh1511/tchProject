@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import addrData from "./addressData";
 import cart from "./cart";
 import item from "./itemSelected";
 import modal from "./modal";
@@ -20,6 +21,7 @@ const rootReducer=combineReducers({
     scroll:scroll,
     itemSelected:item,
     toggleCart:toggleCart,
-    user:user
+    user:user,
+    addrData:addrData
 })
 export default rootReducer;

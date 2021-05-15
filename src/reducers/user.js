@@ -2,7 +2,12 @@ const userInitialState = {
     isLogin: false,
     name: "",
     photo: "",
-    userId: ""
+    userId: "",
+    city:"",
+    district:"",
+    ward:"",
+    specificAddr:"",
+    phone:""
 }
 const user = (state = userInitialState, action) => {
     switch (action.type) {
@@ -22,6 +27,15 @@ const user = (state = userInitialState, action) => {
                 userId: ""
             }
             return newState
+        case "UPDATE_INFO":
+            return{
+                ...state, 
+                city:action.city, 
+                district:action.district, 
+                ward: action.ward,
+                specificAddr:action.specificAddr,
+                phone:action.phone
+            }
         default:
             return state
     }
