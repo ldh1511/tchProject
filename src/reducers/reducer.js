@@ -26,7 +26,9 @@ const reducer = (state = defaultState, action) => {
         case "SELECTED":
             return {...state, selected:!state.selected}
         case "SET_LOADING":
-            return{...state, loading: !state.loading}
+            return{...state, loading: false}
+        case "SET_LOADING_TRUE":
+            return{...state, loading: true}
         default:
             return state
     }

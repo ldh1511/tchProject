@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import Header from './Header';
 import Item from './Item';
 
@@ -46,6 +47,13 @@ function CategoryPage(props) {
                         </div>
                     </div>
                     <div className="category-block-middle">
+                        <ul>
+                            <li>
+                                <NavLink to='/product' className="li-Nav">sản phẩm</NavLink>
+                            </li>
+                            <li><i className="fas fa-angle-double-right"></i></li>
+                            <li>{getTitle()}</li>
+                        </ul>
                         <select className="sort-box" onClick={(e) => handleSortItems(e)}>
                             <option value="up">Giá tăng dần</option>
                             <option value="down">Giá giảm dần</option>

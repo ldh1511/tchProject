@@ -10,10 +10,21 @@ import PaymentInfo from './components/PaymentInfo';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { firebaseConnect } from './connect';
+import firebase from 'firebase';
 import Itempage from './components/Itempage';
 import CategoryPage from './components/CategoryPage';
+import LoginPage from './components/LoginPage';
+import userPage from './components/userPage';
 // import Header from './components/Header';
-
+const config = {
+  apiKey: 'AIzaSyDXPLduefu6MLOF9pRsmqhdZJn5mF8PE2w',
+  authDomain: 'tcfweb-ef85c.firebaseapp.com',
+};
+if (!firebase.apps.length) {
+  firebase.initializeApp(config);
+}else {
+  firebase.app(); // if already initialized, use that one
+}
 function App(props) {
   const step = useSelector(state => state.step);
   const dispatch = useDispatch();
@@ -31,6 +42,25 @@ function App(props) {
       dispatch({ type: "SET_TYPE", payload: snapshot.val() });
     })
   }, [step])
+  //Handle Firebase auth changed
+  useEffect(()=>{
+    const unregisterAuthObserver = firebase.auth().onAuthStateChanged(async (user) => {
+      if(!user){
+        console.log('User is not logged in')
+        return ;
+      }
+      dispatch({
+        type:"USER_LOGIN",
+        isLogin:true,
+        name: user.displayName,
+        photo:user.photoURL,
+        userId:user.uid
+      })
+      const token =await user.getIdToken();
+      console.log('Logged in user token ', token);
+    });
+    return () => unregisterAuthObserver();
+  },[])
   return (
     <BrowserRouter>
       <div className="App">
@@ -47,6 +77,8 @@ function App(props) {
           <Route path='/store' component={() => <Store />}></Route>
           <Route path='/category' component={CategoryPage}></Route>
           <Route path='/item' component={Itempage}></Route>
+          <Route path='/login' component={LoginPage}></Route>
+          <Route path='/user' component={userPage}></Route>
         </Switch>
       </div>
     </BrowserRouter>
