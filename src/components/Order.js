@@ -4,6 +4,7 @@ import Oderleft from './Orderleft';
 import OrderHeader from './OrderHeader';
 import { useSelector } from 'react-redux';
 import PopUp from './PopUp';
+import Footer from './Footer';
 
 function Order(props) {
     const modalState = useSelector(state => state.modal.active);
@@ -22,7 +23,7 @@ function Order(props) {
             <Cart />
             </div>
             {getModal()}
-            
+            <Footer/>
         </div>
     );
 }

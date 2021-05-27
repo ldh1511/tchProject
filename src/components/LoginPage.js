@@ -17,7 +17,6 @@ function LoginPage(props) {
             <h1>Đăng nhập</h1>
             <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
         </div>
-        
         </>
     );
 }

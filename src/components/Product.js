@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import MenuLeft from './MenuLeft';
 import Header from './Header';
 import Banner from './Banner';
 import ProductRight from './ProductRight';
 import { useSelector } from 'react-redux';
 import LoadingPage from './LoadingPage';
-function Product({ product }) {
+import Footer from './Footer';
+function Product() {
     const type = useSelector(state => state.product.type);
     return (
         <>
@@ -17,6 +18,7 @@ function Product({ product }) {
                         <MenuLeft />
                         <ProductRight />
                     </div>
+                    <Footer/>
                 </>
                 :
                 <LoadingPage />

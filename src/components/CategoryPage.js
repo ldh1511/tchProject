@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import Footer from './Footer';
 import Header from './Header';
 import Item from './Item';
 
@@ -64,6 +65,7 @@ function CategoryPage(props) {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </>
     );
 }

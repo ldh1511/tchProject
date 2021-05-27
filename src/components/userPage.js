@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Redirect, Route, Switch } from 'react-router';
 import { NavLink } from 'react-router-dom';
+import Footer from './Footer';
 import Header from './Header';
 import UserAddress from './UserAddress';
 import UserOrders from './UserOrders';
@@ -43,7 +44,7 @@ function UserPage(props) {
                         </Switch>
                     </div>
                 </div>
-
+                <Footer/>
             </>
         );
     }

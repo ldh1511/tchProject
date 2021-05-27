@@ -10,10 +10,6 @@ const Header = (props) => {
     const toggleCart = useSelector(state => state.toggleCart);
     const user = useSelector(state => state.user)
     const dispatch = useDispatch();
-    // const handleCNavLinkck = () => {
-    //     dispatch({ type: "SET_ACTIVE" });
-    //     <Redirect to='/product'></Redirect>
-    // }
     const handleToggleCart = () => {
         dispatch({ type: "CHANGE_STATE_CART" });
     }
@@ -42,7 +38,7 @@ const Header = (props) => {
                         <div className="user-box-img">
                             <img src={user.photo} alt=""></img>
                         </div>
-                        <h3>{user.name}</h3>
+                        
                     </div>
                     <ul className="user-dropdown-menu">
                         <li>
@@ -70,11 +66,11 @@ const Header = (props) => {
     return (
         <header>
             <ul>
+                <li><NavLink to='/product'>sản phẩm</NavLink></li>
+                <li><NavLink to='/store'>cửa hàng</NavLink></li>
                 <li><NavLink to='/'>
                     <img src={logo} className="header--logo" alt="" />
                 </NavLink></li>
-                <li><NavLink to='/product'>sản phẩm</NavLink></li>
-                <li><NavLink to='/story'>cửa hàng</NavLink></li>
                 <li>
                     {/* <i className="fas fa-search" onClick={handleCNavLinkck}></i> */}
                     <div className="cart-icon" onClick={handleToggleCart}>

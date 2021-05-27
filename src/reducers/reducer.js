@@ -3,6 +3,7 @@ const defaultState = {
     active: false,
     selected:false,
     loading:true,
+    active_noti:false,
     value:[]
 }
 const reducer = (state = defaultState, action) => {
@@ -29,6 +30,8 @@ const reducer = (state = defaultState, action) => {
             return{...state, loading: false}
         case "SET_LOADING_TRUE":
             return{...state, loading: true}
+        case "SET_ACTIVE_NOTI":
+            return{...state, active_noti:!state.active_noti}
         default:
             return state
     }

@@ -34,8 +34,12 @@ function DropDownCart(props) {
             </li>
         }
     }
+    const handleCloseElement=()=>{
+        dispatch({type:"CHANGE_STATE_CART"});
+    }
     return (
         <div className="dropdown-cart" >
+            <i className="fas fa-times" onClick={handleCloseElement}></i>
             <ul>
                 {getItem()}
             </ul>

@@ -3,6 +3,7 @@ import Header from './Header';
 import Banner from './Banner';
 import { useDispatch, useSelector } from 'react-redux';
 import LoadingPage from './LoadingPage';
+import Footer from './Footer';
 function Home(props) {
     const loadingState = useSelector(state => state.product.loading);
     const itemState = useSelector(state => state.product.data);
@@ -21,6 +22,7 @@ function Home(props) {
                     <div>
                         <Header />
                         <Banner />
+                        <Footer />
                     </div>
             }
 

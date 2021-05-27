@@ -7,11 +7,15 @@ function Cart(props) {
     const cart = useSelector(state => state.cart);
     const step = useSelector(state => state.step);
     const info=useSelector(state=>state.paymentInfo);
+    const user=useSelector(state=>state.user);
     const dispatch = useDispatch();
     useEffect((e) => {
         const billRef=firebaseConnect.database().ref('bill');
         let bill={
-            items:[],info:info,time:''
+            items:[],
+            payment:info.payment,
+            time:'',
+            userId:user.userId
         };
         cart.map(ele=>{
             let item={}
@@ -25,7 +29,7 @@ function Cart(props) {
         if (step === 2) {
             let current=new Date();
             bill.time=current.toLocaleString();
-            billRef.push(bill);
+           billRef.push(bill);
         }
     }, [step])
     const getTotalAmount = () => {
@@ -49,7 +53,6 @@ function Cart(props) {
             img:e.item[1].link,
             size: e.size
         })
-        console.log(e)
     }
     const getItem = () => {
         return cart.map((e, i) =>

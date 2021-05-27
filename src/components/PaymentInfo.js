@@ -4,6 +4,7 @@ import OrderHeader from './OrderHeader';
 import Payment from './Payment';
 import { useSelector } from 'react-redux';
 import PopUp from './PopUp';
+import Footer from './Footer';
 
 function PaymentInfo(props) {
     const step=useSelector(e=>e.step);
@@ -23,7 +24,7 @@ function PaymentInfo(props) {
                 <Cart />
                 {getPopUp()}
             </div>
-
+            <Footer/>
         </div>
     );
 }

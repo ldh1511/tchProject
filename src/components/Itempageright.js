@@ -11,6 +11,7 @@ function Itempageright({ match }) {
     const cart=useSelector((state)=>state.cart);
     const elRef = useRef([]);
     const cartRef=useRef();
+    console.log(match[0][1].id);
     const handleSelectSize = (e) => {
         dispatch({
             type: "CHANGE_SIZE_ITEM",
@@ -20,7 +21,6 @@ function Itempageright({ match }) {
         })
     }
     const handleSelectAmount = (e) => {
-        console.log(e.target.value);
         dispatch({
             type: "CHANGE_AMOUNT_ITEM",
             amount: parseInt(e.target.value),
@@ -52,7 +52,7 @@ function Itempageright({ match }) {
         )
     }
     const getRelatedItem = () => {
-        let result = item.filter(e => e[1].type === match[0][1].type);
+        let result = item.filter(e => e[1].type === match[0][1].type && e[1].id!==match[0][1].id);
         return result.map((e, i) =>
             <Item data={e} key={i} />
         )

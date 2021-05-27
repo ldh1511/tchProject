@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Home from './components/Home';
-import BrandStory from './components/BrandStory';
+import BrandStory from './components/StoreLocation';
 import Product from './components/Product';
 import Store from './components/Store';
 import Order from './components/Order';
@@ -16,33 +16,32 @@ import CategoryPage from './components/CategoryPage';
 import LoginPage from './components/LoginPage';
 import userPage from './components/userPage';
 import addressApi from './api/addressApi';
-// import Header from './components/Header';
 const config = {
   apiKey: 'AIzaSyDXPLduefu6MLOF9pRsmqhdZJn5mF8PE2w',
   authDomain: 'tcfweb-ef85c.firebaseapp.com',
 };
 if (!firebase.apps.length) {
   firebase.initializeApp(config);
-}else {
+} else {
   firebase.app(); // if already initialized, use that one
 }
 function App(props) {
-  const [productList, setProductList]=useState([]);
   const step = useSelector(state => state.step);
+  const user = useSelector(state => state.user);
   const dispatch = useDispatch();
   // Lấy dữ liệu tỉnh thành
-  useEffect(()=>{
-    const fetchAddressDataList=async ()=>{
+  useEffect(() => {
+    const fetchAddressDataList = async () => {
       try {
-        const response= await addressApi.getAllCity();
-        dispatch({type:"SET_CITY", city:response.results});
+        const response = await addressApi.getAllCity();
+        dispatch({ type: "SET_CITY", province: response.results });
       }
-      catch (error){
+      catch (error) {
         console.log(error)
       }
     }
     fetchAddressDataList()
-  },[])
+  }, [])
 
   useEffect(() => {
     if (step === 3) {
@@ -58,40 +57,70 @@ function App(props) {
       dispatch({ type: "SET_TYPE", payload: snapshot.val() });
     })
   }, [step])
+
   //Handle Firebase auth changed
-  useEffect(()=>{
+  useEffect(() => {
     const unregisterAuthObserver = firebase.auth().onAuthStateChanged(async (user) => {
-      if(!user){
-        console.log('User is not logged in')
-        return ;
+      if (!user) {
+        return;
       }
-      dispatch({
-        type:"USER_LOGIN",
-        isLogin:true,
-        name: user.displayName,
-        photo:user.photoURL,
-        userId:user.uid
+      let users = firebaseConnect.database().ref('users');
+      users.orderByChild('userId').equalTo(`${user.uid}`).on('value', (snapshot) => {
+        if (snapshot.val() === null) {
+          let userInfo = {
+            userId: user.uid,
+            name: user.displayName,
+            photo: user.photoURL,
+            province: "",
+            district: "",
+            ward: "",
+            specificAddr: "",
+            phone: "",
+            payment: ""
+          }
+          firebaseConnect.database().ref('users').push(userInfo);
+        }
+        else {
+          let key = Object.keys(snapshot.val())[0];
+          let userData = snapshot.val()[`${key}`];
+          dispatch({
+            type: "UPDATE_INFO",
+            province: userData.province,
+            district: userData.district,
+            ward: userData.ward,
+            specificAddr: userData.specificAddr,
+            phone: userData.phone
+          })
+        }
       })
-      const token =await user.getIdToken();
-      console.log('Logged in user token ', token);
+      dispatch({
+        type: "USER_LOGIN",
+        isLogin: true,
+        name: user.displayName,
+        photo: user.photoURL,
+        userId: user.uid
+      })
+      // const token = await user.getIdToken();
     });
     return () => unregisterAuthObserver();
-  },[])
-  
+  }, [])
   return (
     <BrowserRouter>
       <div className="App">
         <Switch>
           <Route exact path='/' component={() => <Home />}></Route>
-          <Route path='/brand-story' component={() => <BrandStory />}></Route>
+          <Route path='/store' component={() => <BrandStory />}></Route>
           <Route exact path='/product' component={() => <Product />}></Route>
-          <Route  path='/order' component={() => {
-            return step === 0 ? (<Order />) : (<Redirect to='/payment' />)
+          <Route path='/order' component={() => {
+            return step === 0 ?
+              (<Order />)
+              :
+              (<Redirect to='/payment' />)
           }}></Route>
           <Route exact path='/payment' component={() => {
-            return step < 3 ? (<PaymentInfo />) : (<Redirect to='/' />)
+            return user.isLogin === true ? (<PaymentInfo />) : (<Redirect to='/login' />)
           }}></Route>
-          <Route path='/store' component={() => <Store />}></Route>
+          {/* <Route path='/store' component={() => <Store />}></Route> */}
           <Route path='/category' component={CategoryPage}></Route>
           <Route path='/item' component={Itempage}></Route>
           <Route path='/login' component={LoginPage}></Route>

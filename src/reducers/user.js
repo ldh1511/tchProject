@@ -3,7 +3,7 @@ const userInitialState = {
     name: "",
     photo: "",
     userId: "",
-    city:"",
+    province:"",
     district:"",
     ward:"",
     specificAddr:"",
@@ -30,7 +30,7 @@ const user = (state = userInitialState, action) => {
         case "UPDATE_INFO":
             return{
                 ...state, 
-                city:action.city, 
+                province:action.province, 
                 district:action.district, 
                 ward: action.ward,
                 specificAddr:action.specificAddr,

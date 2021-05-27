@@ -1,12 +1,12 @@
 const addrDataInitialState = {
-    city:'',
+    province:'',
     districts:[],
     ward:[]
 }
 const addrData = (state = addrDataInitialState, action) => {
     switch (action.type) {
         case "SET_CITY":
-            return {...state, city:action.city}
+            return {...state, province:action.province}
         case "SET_DISTRICT":
             return {...state, districts:action.districts}
         case "SET_WARD":
