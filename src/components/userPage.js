@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Redirect, Route, Switch } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import Footer from './Footer';
@@ -9,11 +9,16 @@ import UserOrders from './UserOrders';
 import UserPayment from './UserPayment';
 function UserPage(props) {
     const userState = useSelector(state => state.user);
+    const dispatch=useDispatch();
+    const handleClick=()=>{
+        dispatch({type:"SET_MENU_ICON"});
+    }
     if (userState.isLogin === true) {
         return (
             <>
                 <Header />
                 <div className="user-container">
+                <i className="fas fa-bars menu-icon" onClick={handleClick}></i>
                     <h1>Tài khoản cá nhân</h1>
                     <div className="user-container-bottom">
                         <div className="user-category">

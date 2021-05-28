@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import firebase from 'firebase';
@@ -8,7 +8,9 @@ import DropDownCart from './DropDownCart';
 const Header = (props) => {
     const cart = useSelector(state => state.cart);
     const toggleCart = useSelector(state => state.toggleCart);
-    const user = useSelector(state => state.user)
+    const user = useSelector(state => state.user);
+    const menusState=useSelector(state=>state.product.menu);
+    const ref=useRef();
     const dispatch = useDispatch();
     const handleToggleCart = () => {
         dispatch({ type: "CHANGE_STATE_CART" });
@@ -63,8 +65,20 @@ const Header = (props) => {
             )
         }
     }
+    useEffect(()=>{
+        if(menusState===true){
+            ref.current.className="menu-active";
+        }
+        else{
+            ref.current.className='menu-hidden';
+        }
+    })
+    const handleClick=()=>{
+        dispatch({type:"SET_MENU_ICON"})
+    }
     return (
-        <header>
+        <header ref={ref}>
+            <i className="fas fa-times header-icon" onClick={handleClick}></i>
             <ul>
                 <li><NavLink to='/product'>sản phẩm</NavLink></li>
                 <li><NavLink to='/store'>cửa hàng</NavLink></li>

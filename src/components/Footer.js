@@ -9,8 +9,9 @@ function Footer(props) {
                     <img alt="" src={logo}></img>
                 </div>
                 <div className="footer-content">
-                    <p>Copyright 2021 NEXW Company </p>
+                    <p>2021 NEXW Company </p>
                     <p>Developed by LDH</p>
+                    <p>This website is developed for educational purposes</p>
                 </div>
             </div>
         </footer>

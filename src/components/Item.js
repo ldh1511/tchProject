@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 const Item = ({ data }) => {
+    console.log(data);
     const dispatch = useDispatch();
     const handleClick = () => {
         dispatch({ type: "SELECTED" }); //Thay đổi trạng thái

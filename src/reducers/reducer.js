@@ -4,6 +4,7 @@ const defaultState = {
     selected:false,
     loading:true,
     active_noti:false,
+    menu:false,
     value:[]
 }
 const reducer = (state = defaultState, action) => {
@@ -32,6 +33,8 @@ const reducer = (state = defaultState, action) => {
             return{...state, loading: true}
         case "SET_ACTIVE_NOTI":
             return{...state, active_noti:!state.active_noti}
+        case "SET_MENU_ICON":
+            return{...state,menu:!state.menu}
         default:
             return state
     }
