@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/tchProject/static/css/main.7466d3d2.chunk.css",
+    "main.js": "/tchProject/static/js/main.f8297091.chunk.js",
+    "main.js.map": "/tchProject/static/js/main.f8297091.chunk.js.map",
+    "runtime-main.js": "/tchProject/static/js/runtime-main.e705edd8.js",
+    "runtime-main.js.map": "/tchProject/static/js/runtime-main.e705edd8.js.map",
+    "static/js/2.60926051.chunk.js": "/tchProject/static/js/2.60926051.chunk.js",
+    "static/js/2.60926051.chunk.js.map": "/tchProject/static/js/2.60926051.chunk.js.map",
+    "static/js/3.148760e9.chunk.js": "/tchProject/static/js/3.148760e9.chunk.js",
+    "static/js/3.148760e9.chunk.js.map": "/tchProject/static/js/3.148760e9.chunk.js.map",
+    "index.html": "/tchProject/index.html",
+    "static/css/main.7466d3d2.chunk.css.map": "/tchProject/static/css/main.7466d3d2.chunk.css.map",
+    "static/js/2.60926051.chunk.js.LICENSE.txt": "/tchProject/static/js/2.60926051.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/tchProject/static/media/tea-leaves.90123cd4.png",
+    "static/media/box.5c1200d3.gif": "/tchProject/static/media/box.5c1200d3.gif",
+    "static/media/cart-checkout.e1017934.gif": "/tchProject/static/media/cart-checkout.e1017934.gif",
+    "static/media/checked.6f298cca.png": "/tchProject/static/media/checked.6f298cca.png",
+    "static/media/finish.349242ac.gif": "/tchProject/static/media/finish.349242ac.gif",
+    "static/media/loading.6fead019.gif": "/tchProject/static/media/loading.6fead019.gif",
+    "static/media/logo (2).0b8b85b2.png": "/tchProject/static/media/logo (2).0b8b85b2.png",
+    "static/media/store-location.4f8a070b.gif": "/tchProject/static/media/store-location.4f8a070b.gif",
+    "static/media/store.0a74497e.jpg": "/tchProject/static/media/store.0a74497e.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e705edd8.js",
+    "static/js/2.60926051.chunk.js",
+    "static/css/main.7466d3d2.chunk.css",
+    "static/js/main.f8297091.chunk.js"
+  ]
+}
