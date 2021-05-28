@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import './App.css';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect, HashRouter } from 'react-router-dom';
 import Home from './components/Home';
 import BrandStory from './components/StoreLocation';
 import Product from './components/Product';
-import Store from './components/Store';
 import Order from './components/Order';
 import PaymentInfo from './components/PaymentInfo';
 import { useSelector } from 'react-redux';
@@ -105,7 +104,7 @@ function App(props) {
     return () => unregisterAuthObserver();
   }, [])
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="App">
         <Switch>
           <Route exact path='/' component={() => <Home />}></Route>
@@ -127,7 +126,7 @@ function App(props) {
           <Route path='/user' component={userPage}></Route>
         </Switch>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 export default App;
