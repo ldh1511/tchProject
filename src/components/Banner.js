@@ -12,7 +12,9 @@ const Banner = ({ img, title }) => {
         <div className="banner" style={
             {
                 backgroundImage: `url(${img})`,
-                backgroundPosition: 'center'
+                backgroundPosition: 'center',
+                backgroundSize:'cover',
+                backgroundRepeat:'no-repeat'
             }
         }>
             <i className="fas fa-bars menu-icon" onClick={handleClick}></i>
