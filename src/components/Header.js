@@ -40,7 +40,7 @@ const Header = (props) => {
                         <div className="user-box-img">
                             <img src={user.photo} alt=""></img>
                         </div>
-                        
+                        <h3>{user.name}</h3>
                     </div>
                     <ul className="user-dropdown-menu">
                         <li>
@@ -80,13 +80,12 @@ const Header = (props) => {
         <header ref={ref}>
             <i className="fas fa-times header-icon" onClick={handleClick}></i>
             <ul>
-                <li><NavLink to='/product'>sản phẩm</NavLink></li>
-                <li><NavLink to='/store'>cửa hàng</NavLink></li>
-                <li><NavLink to='/'>
+                <li onClick={handleClick}><NavLink to='/product'>sản phẩm</NavLink></li>
+                <li onClick={handleClick}><NavLink to='/store'>cửa hàng</NavLink></li>
+                <li onClick={handleClick}><NavLink to='/'>
                     <img src={logo} className="header--logo" alt="" />
                 </NavLink></li>
                 <li>
-                    {/* <i className="fas fa-search" onClick={handleCNavLinkck}></i> */}
                     <div className="cart-icon" onClick={handleToggleCart}>
                         <div className="cart-number">{cart.length}</div>
                         <i className="fas fa-shopping-cart"></i>

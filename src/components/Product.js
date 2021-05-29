@@ -6,6 +6,7 @@ import ProductRight from './ProductRight';
 import { useSelector } from 'react-redux';
 import LoadingPage from './LoadingPage';
 import Footer from './Footer';
+import Image from './../img/background2.jpg';
 function Product() {
     const type = useSelector(state => state.product.type);
     return (
@@ -13,7 +14,7 @@ function Product() {
             {type && Object.keys(type).length !== 0 ?
                 <>
                     <Header />
-                    <Banner />
+                    <Banner img={Image} title={`sản phẩm`}/>
                     <div className="product">
                         <MenuLeft />
                         <ProductRight />

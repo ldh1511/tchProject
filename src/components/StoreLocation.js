@@ -6,6 +6,7 @@ import axios from 'axios';
 import LoadingPage from './LoadingPage';
 import Footer from './Footer';
 import gif from './../img/store-location.gif';
+import Image from './../img/background3.jpg';
 function BrandStory(props) {
     const [storeLoc, setStore] = useState();
     const [state, setState] = useState();
@@ -98,7 +99,7 @@ function BrandStory(props) {
         return (
             <>
                 <Header />
-                <Banner />
+                <Banner img={Image} title={`cửa hàng`}/>
                 <div className="store-container">
                     <div className="store-search">
                         <form className="store-form">

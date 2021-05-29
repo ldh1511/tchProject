@@ -6,6 +6,7 @@ import LoadingPage from './LoadingPage';
 import Footer from './Footer';
 import Item from './Item';
 import { NavLink } from 'react-router-dom';
+import Image from './../img/background.jpg';
 function Home(props) {
     const loadingState = useSelector(state => state.product.loading);
     const itemState = useSelector(state => state.product.data);
@@ -30,7 +31,7 @@ function Home(props) {
                     :
                     <div>
                         <Header />
-                        <Banner />
+                        <Banner img={Image} title={`JIZ'COFFEE`}/>
                         <div className="intro-block">
                             <div className="intro-content">
                                 <h3>sản phẩm</h3>

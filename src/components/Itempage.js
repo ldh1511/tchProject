@@ -22,6 +22,9 @@ function Itempage(props) {
     const HandleClickLiEle = (e) => {
         dispatch({ type: "CHANGE_LOCATION_ITEM", loc: e })
     }
+    const handleClick=()=>{
+        dispatch({type:"SET_MENU_ICON"});
+    }
     return (
         <>
             <Header />
@@ -31,7 +34,6 @@ function Itempage(props) {
                         <ul>
                             <li>
                                 <img src={match[0][1].link} alt=""></img>
-                               
                             </li>
                             <li><img src={match[0][1].link} alt=""></img></li>
                             <li><img src={match[0][1].link} alt=""></img></li>
@@ -42,6 +44,7 @@ function Itempage(props) {
                             {liArr.map((e, i) =>
                                 <li key={i} onClick={() => HandleClickLiEle(i)}>{e}</li>
                             )}
+                             <i className="fas fa-bars menu-icon" onClick={handleClick}></i>
                         </ul>
                     </div>
                     <Itempageright match={match} />

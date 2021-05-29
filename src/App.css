@@ -120,16 +120,16 @@ header ul li a{
 .banner-content h1{
   font-size: 55px;
   margin-bottom: 20px;
+  color: white;
+  text-transform: uppercase;
 }
 .banner-content p{
   font-size: 30px;
   letter-spacing: 4px;
   font-weight: 100;
-}
-.banner-content h1,
-.banner-content p{
   color: white;
 }
+
 .product{
   position: relative;
   display: flex;
@@ -897,7 +897,9 @@ header ul li a{
   background: white;
   position: relative;
 }
-
+.item-pages-center .menu-icon{
+  display: none;
+}
 .item-pages-center ul{
   position: sticky;
   display: flex;
@@ -1020,12 +1022,12 @@ header ul li a{
   padding: 15px;
   background: white;
   font-size: 14px;
-  border-radius: 30px;
+  border-radius: 10px;
   cursor: pointer;
   letter-spacing: 2px;
   position: relative;
   overflow: hidden;
-  z-index: 999;
+  z-index: 1;
 }
 .item-pages--btn::after{
   content: "";
@@ -1033,7 +1035,7 @@ header ul li a{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #341b07;
+  background: #076158;
   z-index: -1;
   border-radius: 50%;
 }
@@ -1041,7 +1043,7 @@ header ul li a{
   color: white;
 }
 .item-pages--btn:hover::after{
-  animation: ani1 2s forwards;
+  animation: ani1 1s forwards;
 }
 @keyframes ani1{
   from{
@@ -1218,9 +1220,11 @@ header ul li a{
   height: 100%;
   display: block;
 }
-.user-box h3{
+.user-box h3 {
   font-size: 14px;
   font-weight: 500;
+  margin-left: 10px;
+  display: none;
 }
 .user-account{
   position: relative;
@@ -1677,7 +1681,7 @@ footer{
     flex-direction: column;
   }
   .item-pages-left {
-    margin-top: 25px;
+    margin-top: 75px;
     order: 2;
   }
   .item-pages-left ul li{
@@ -1695,9 +1699,18 @@ footer{
   }
   .item-pages-center {
     order: 1;
-    margin-top: 100px;
+    margin-top: 0px;
     border-radius: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    background-color: rgb(255 255 255 / 30%);
+    backdrop-filter: blur(40px);
+    z-index: 9;
   }
+  
   .item-pages-right {
     flex: 3 1;
     order: 3;
@@ -1817,13 +1830,15 @@ footer{
   header{
     height: 100vh;
     width: 40%;
-    animation: header_ani 1s forwards;
+    animation: header_ani .4s forwards;
     left: unset;
     right: 0;
     padding: 20px;
     padding-top: 50px;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
+    background-color: rgb(255 255 255 / 30%);
+    backdrop-filter: blur(90px);
   }
   @keyframes header_ani {
     from{
@@ -1838,7 +1853,7 @@ footer{
   }
   header ul li {
     width: 100%;
-    padding: 30px 0;
+    margin: 30px 0;
   }
   header ul li:nth-child(1){
     order: 2;
@@ -1855,11 +1870,13 @@ footer{
   header ul li:nth-child(5){
     order: 5;
   }
-  .header-icon{
+  .header-icon {
     position: absolute;
     top: 15px;
     left: 15px;
     display: block;
+    font-size: 25px;
+    cursor: pointer;
   }
   .cart-icon{
     margin-left: 0;
@@ -1945,6 +1962,13 @@ footer{
     width: 90%;
   }
   .user-container .menu-icon{
+    display: block;
+    color: black;
+  }
+  .user-box h3{
+    display: block;
+  }
+  .item-pages-center .menu-icon {
     display: block;
     color: black;
   }
@@ -2083,7 +2107,7 @@ footer{
   }
   .banner-content {
     top: 35%;
-    left: 35%;
+    left: 20%;
     line-height: 25px;
   }
   .menu-icon {
