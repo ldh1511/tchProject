@@ -3,7 +3,7 @@ import firebase from 'firebase';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import Header from './Header';
 const uiConfig = {
-    signInFlow: 'redirect',
+    signInFlow: 'popup',
     signInSuccessUrl: '/product',
     signInOptions: [
       firebase.auth.GoogleAuthProvider.PROVIDER_ID
