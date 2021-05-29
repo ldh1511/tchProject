@@ -1893,7 +1893,7 @@ footer{
   }
   .category {
     max-width: 770px;
-    margin-top: 30px;
+    margin-top: 0px;
   }
   .sort-box{
     width: 20%;
@@ -2025,11 +2025,11 @@ footer{
     display: grid;
     grid-template-columns: 50% 50%;
   }
-  /* .intro-bottom .item {
-    margin: 0;
-    width: calc(100% - 10px);
-    margin-bottom: 10px;
-  } */
+  .category-block-bottom {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
   .store-container {
     max-width: 471px;
   }
@@ -2202,5 +2202,19 @@ footer{
   .modal-bottom button{
     width: 100%;
     margin-top: 15px;
+  }
+  .category-title-back h2 ,
+  .category-block-top h1{
+    font-size: 45px;
+  }
+  .category-block-top{
+    height: 150px;
+  }
+  .sort-box {
+    width: 35%;
+  }
+  .category-block-middle ul li{
+    margin-right: 5px;
+    font-size: 12px;
   }
 }
