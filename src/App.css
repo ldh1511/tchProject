@@ -2033,6 +2033,10 @@ footer{
   .store-container {
     max-width: 471px;
   }
+  .modal-title {
+    top: 50%;
+    left: 20%;
+  }
 }
 @media only screen and (max-width:471px) {
   .banner {
@@ -2176,5 +2180,27 @@ footer{
   .intro-block p {
     font-size: 13px;
     padding: 0 30px;
+  }
+  .modal-title h3 {
+    font-weight: 900;
+    font-size: 30px;
+  }
+  .form-check-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .form-check {
+    margin-right: 0;
+    margin-top: 10px;
+  }
+  .modal-bottom {
+    flex-direction: column;
+  }
+  .modal-amount {
+    width: 100%;
+  }
+  .modal-bottom button{
+    width: 100%;
+    margin-top: 15px;
   }
 }
