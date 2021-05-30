@@ -90,9 +90,13 @@ header ul li a{
  position: relative;;
 }
 .banner img{
-  display: block;
-  width: 100%;
+  position: absolute;
+  bottom: -30%;
+  left: 50%;
+  transform: translateX(-50%);
   animation: banner_ani 3s forwards;
+  display: block;
+  width: 30px;
 }
 @keyframes banner_ani{
   from{
@@ -1663,6 +1667,9 @@ footer{
   .banner{
     height: 379px;
   }
+  .banner img{
+    bottom: -45%;
+  }
   .product-container h3 {
     font-size: 35px;
   }
@@ -1778,6 +1785,7 @@ footer{
   }
   .banner img{
     animation: banner_ani3 1s forwards;
+    bottom: -5%;
   }
   @keyframes banner_ani3 {
     from{
@@ -1980,6 +1988,12 @@ footer{
   .banner {
     height: 230px;
   }
+  .banner-content{
+    top: 30%;
+  }
+  .banner img{
+    bottom: -15%;
+  }
   .banner-content h1 {
     font-size: 34px;
     margin-bottom: 8px;
@@ -2079,7 +2093,7 @@ footer{
     }
   }
   .banner img{
-    display: none;
+    bottom: 2%;
   }
   .store-container {
     max-width: 1200px;
