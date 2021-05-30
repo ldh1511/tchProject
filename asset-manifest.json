@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/tchProject/static/css/main.7baab58c.chunk.css",
-    "main.js": "/tchProject/static/js/main.64bda779.chunk.js",
-    "main.js.map": "/tchProject/static/js/main.64bda779.chunk.js.map",
+    "main.css": "/tchProject/static/css/main.6e1c63b3.chunk.css",
+    "main.js": "/tchProject/static/js/main.528830cf.chunk.js",
+    "main.js.map": "/tchProject/static/js/main.528830cf.chunk.js.map",
     "runtime-main.js": "/tchProject/static/js/runtime-main.e705edd8.js",
     "runtime-main.js.map": "/tchProject/static/js/runtime-main.e705edd8.js.map",
     "static/js/2.60926051.chunk.js": "/tchProject/static/js/2.60926051.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.148760e9.chunk.js": "/tchProject/static/js/3.148760e9.chunk.js",
     "static/js/3.148760e9.chunk.js.map": "/tchProject/static/js/3.148760e9.chunk.js.map",
     "index.html": "/tchProject/index.html",
-    "static/css/main.7baab58c.chunk.css.map": "/tchProject/static/css/main.7baab58c.chunk.css.map",
+    "static/css/main.6e1c63b3.chunk.css.map": "/tchProject/static/css/main.6e1c63b3.chunk.css.map",
     "static/js/2.60926051.chunk.js.LICENSE.txt": "/tchProject/static/js/2.60926051.chunk.js.LICENSE.txt",
     "static/media/App.css": "/tchProject/static/media/tea-leaves.90123cd4.png",
     "static/media/box.5c1200d3.gif": "/tchProject/static/media/box.5c1200d3.gif",
@@ -25,7 +25,7 @@
   "entrypoints": [
     "static/js/runtime-main.e705edd8.js",
     "static/js/2.60926051.chunk.js",
-    "static/css/main.7baab58c.chunk.css",
-    "static/js/main.64bda779.chunk.js"
+    "static/css/main.6e1c63b3.chunk.css",
+    "static/js/main.528830cf.chunk.js"
   ]
 }
