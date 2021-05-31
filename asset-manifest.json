@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.css": "/tchProject/static/css/main.2bf54649.chunk.css",
-    "main.js": "/tchProject/static/js/main.09b9f163.chunk.js",
-    "main.js.map": "/tchProject/static/js/main.09b9f163.chunk.js.map",
+    "main.css": "/tchProject/static/css/main.a698c41e.chunk.css",
+    "main.js": "/tchProject/static/js/main.0c32fccb.chunk.js",
+    "main.js.map": "/tchProject/static/js/main.0c32fccb.chunk.js.map",
     "runtime-main.js": "/tchProject/static/js/runtime-main.e705edd8.js",
     "runtime-main.js.map": "/tchProject/static/js/runtime-main.e705edd8.js.map",
-    "static/js/2.60926051.chunk.js": "/tchProject/static/js/2.60926051.chunk.js",
-    "static/js/2.60926051.chunk.js.map": "/tchProject/static/js/2.60926051.chunk.js.map",
+    "static/js/2.2946c603.chunk.js": "/tchProject/static/js/2.2946c603.chunk.js",
+    "static/js/2.2946c603.chunk.js.map": "/tchProject/static/js/2.2946c603.chunk.js.map",
     "static/js/3.148760e9.chunk.js": "/tchProject/static/js/3.148760e9.chunk.js",
     "static/js/3.148760e9.chunk.js.map": "/tchProject/static/js/3.148760e9.chunk.js.map",
     "index.html": "/tchProject/index.html",
-    "static/css/main.2bf54649.chunk.css.map": "/tchProject/static/css/main.2bf54649.chunk.css.map",
-    "static/js/2.60926051.chunk.js.LICENSE.txt": "/tchProject/static/js/2.60926051.chunk.js.LICENSE.txt",
+    "static/css/main.a698c41e.chunk.css.map": "/tchProject/static/css/main.a698c41e.chunk.css.map",
+    "static/js/2.2946c603.chunk.js.LICENSE.txt": "/tchProject/static/js/2.2946c603.chunk.js.LICENSE.txt",
     "static/media/App.css": "/tchProject/static/media/tea-leaves.90123cd4.png",
     "static/media/box.5c1200d3.gif": "/tchProject/static/media/box.5c1200d3.gif",
+    "static/media/cancel.1c2963ee.png": "/tchProject/static/media/cancel.1c2963ee.png",
     "static/media/cart-checkout.e1017934.gif": "/tchProject/static/media/cart-checkout.e1017934.gif",
     "static/media/checked.6f298cca.png": "/tchProject/static/media/checked.6f298cca.png",
     "static/media/finish.349242ac.gif": "/tchProject/static/media/finish.349242ac.gif",
@@ -25,8 +26,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.e705edd8.js",
-    "static/js/2.60926051.chunk.js",
-    "static/css/main.2bf54649.chunk.css",
-    "static/js/main.09b9f163.chunk.js"
+    "static/js/2.2946c603.chunk.js",
+    "static/css/main.a698c41e.chunk.css",
+    "static/js/main.0c32fccb.chunk.js"
   ]
 }
