@@ -7,14 +7,15 @@ import ModalNoti from './ModalNoti';
 function UserAddress(props) {
     const addrData = useSelector(state => state.addrData);
     const userData = useSelector(state => state.user);
-    const active=useSelector(state=>state.product.active_noti);
+    const active = useSelector(state => state.product.active_noti);
     const dispatch = useDispatch();
     const [curAddr, setCurAddr] = useState({
         province: userData.province,
         district: userData.district,
         ward: userData.ward,
         specificAddr: userData.specificAddr,
-        phone: userData.phone
+        phone: userData.phone,
+        check:false
     })
     const handleSelectAddr = (e) => {
         let name = e.target.name;
@@ -43,26 +44,32 @@ function UserAddress(props) {
         users.orderByChild('userId').equalTo(`${userData.userId}`).on('value', (snapshot) => {
             key = Object.keys(snapshot.val())[0];
         })
-        users.child(key).update({
-            province: curAddr.province,
-            district: curAddr.district,
-            ward: curAddr.ward,
-            specificAddr: curAddr.specificAddr,
-            phone: curAddr.phone
-        })
-        dispatch({
-            type: "UPDATE_INFO",
-            province: curAddr.province,
-            district: curAddr.district,
-            ward: curAddr.ward,
-            specificAddr: curAddr.specificAddr,
-            phone: curAddr.phone
-        });
-        dispatch({type:"SET_ACTIVE_NOTI"})
+        if (curAddr.province && curAddr.district && curAddr.ward && curAddr.specificAddr && curAddr.phone) {
+            users.child(key).update({
+                province: curAddr.province,
+                district: curAddr.district,
+                ward: curAddr.ward,
+                specificAddr: curAddr.specificAddr,
+                phone: curAddr.phone
+            })
+            dispatch({
+                type: "UPDATE_INFO",
+                province: curAddr.province,
+                district: curAddr.district,
+                ward: curAddr.ward,
+                specificAddr: curAddr.specificAddr,
+                phone: curAddr.phone
+            });
+            setCurAddr({...curAddr, check:true})
+        }
+        else{
+            setCurAddr({...curAddr, check:false})
+        }
+        dispatch({ type: "SET_ACTIVE_NOTI" })
     }
     const getModal = () => {
         if (active === true) {
-            return <ModalNoti/>
+            return <ModalNoti props={curAddr.check}/>
         }
     }
     // lấy dữ liệu quận / huyện
@@ -97,10 +104,10 @@ function UserAddress(props) {
     }, [curAddr.district])
     return (
         <div className="user-info">
-            <h3>địa chỉ nhận hàng</h3>
+            <h3>địa chỉ nhận hàng </h3>
             <form className="user-addr-form">
                 <div className="form-group">
-                    <label>Tỉnh / Thành phố</label>
+                    <label>Tỉnh / Thành phố *</label>
                     <select className="form-control" name="province"
                         onChange={(e) => handleSelectAddr(e)}
                         value={curAddr.province}
@@ -109,7 +116,7 @@ function UserAddress(props) {
                     </select>
                 </div>
                 <div className="form-group">
-                    <label>Quận / Huyện / Thị xã</label>
+                    <label>Quận / Huyện / Thị xã *</label>
                     <select className="form-control" name="district"
                         onChange={(e) => handleSelectAddr(e)}
                         value={curAddr.district}
@@ -118,7 +125,7 @@ function UserAddress(props) {
                     </select>
                 </div>
                 <div className="form-group">
-                    <label>Phường / Xã</label>
+                    <label>Phường / Xã *</label>
                     <select className="form-control" name="ward"
                         onChange={(e) => handleSelectAddr(e)}
                         value={curAddr.ward}
@@ -127,7 +134,7 @@ function UserAddress(props) {
                     </select>
                 </div>
                 <div className="form-group">
-                    <label>Địa chỉ cụ thể</label>
+                    <label>Địa chỉ cụ thể *</label>
                     <input
                         type="text"
                         className="form-control" name="specificAddr"
@@ -137,7 +144,7 @@ function UserAddress(props) {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Số điện thoại</label>
+                    <label>Số điện thoại *</label>
                     <input
                         type="text"
                         className="form-control" name="phone"
@@ -146,6 +153,9 @@ function UserAddress(props) {
                         onChange={(e) => handleSelectAddr(e)}
                     />
                 </div>
+                <p className="warning">
+                    <i className="fas fa-exclamation-triangle"></i> <span>*</span> Bắt buộc
+                </p>
                 <button className="user-btn" onClick={e => updateUserInfo(e)}>
                     Cập nhật
                 </button>

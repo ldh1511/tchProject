@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import Cart from './Cart';
-import OrderHeader from './OrderHeader';
 import Payment from './Payment';
 import { useSelector } from 'react-redux';
 import PopUp from './PopUp';
 import Footer from './Footer';
+import Header from './Header';
 
 function PaymentInfo(props) {
     const step=useSelector(e=>e.step);
@@ -18,7 +18,7 @@ function PaymentInfo(props) {
     },[])
     return (
         <div>
-            <OrderHeader />
+            <Header />
             <div className="order-body">
                 <Payment />
                 <Cart />

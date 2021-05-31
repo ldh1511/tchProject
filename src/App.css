@@ -1659,6 +1659,14 @@ footer{
 .header-icon{
   display: none;
 }
+.warning{
+  color: red;
+  display: flex;
+}
+.warning span{
+  font-size: 30px;
+  margin-right: 10px;
+}
 /* RESPONIVE */
 @media only screen and (max-width:1200px) {
   html, body{

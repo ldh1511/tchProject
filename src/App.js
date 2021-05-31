@@ -15,6 +15,7 @@ import CategoryPage from './components/CategoryPage';
 import LoginPage from './components/LoginPage';
 import userPage from './components/userPage';
 import addressApi from './api/addressApi';
+import ScrollToTop from './components/ScrollToTop';
 const config = {
   apiKey: 'AIzaSyDXPLduefu6MLOF9pRsmqhdZJn5mF8PE2w',
   authDomain: 'tcfweb-ef85c.firebaseapp.com',
@@ -105,27 +106,29 @@ function App(props) {
   }, [])
   return (
     <HashRouter>
-      <div className="App">
-        <Switch>
-          <Route exact path='/' component={() => <Home />}></Route>
-          <Route path='/store' component={() => <BrandStory />}></Route>
-          <Route exact path='/product' component={() => <Product />}></Route>
-          <Route path='/order' component={() => {
-            return step === 0 ?
-              (<Order />)
-              :
-              (<Redirect to='/payment' />)
-          }}></Route>
-          <Route exact path='/payment' component={() => {
-            return user.isLogin === true ? (<PaymentInfo />) : (<Redirect to='/login' />)
-          }}></Route>
-          {/* <Route path='/store' component={() => <Store />}></Route> */}
-          <Route path='/category' component={CategoryPage}></Route>
-          <Route path='/item' component={Itempage}></Route>
-          <Route path='/login' component={LoginPage}></Route>
-          <Route path='/user' component={userPage}></Route>
-        </Switch>
-      </div>
+      <ScrollToTop>
+        <div className="App">
+          <Switch>
+            <Route exact path='/' component={() => <Home />}></Route>
+            <Route path='/store' component={() => <BrandStory />}></Route>
+            <Route exact path='/product' component={() => <Product />}></Route>
+            <Route path='/order' component={() => {
+              return step === 0 ?
+                (<Order />)
+                :
+                (<Redirect to='/payment' />)
+            }}></Route>
+            <Route exact path='/payment' component={() => {
+              return user.isLogin === true ? (<PaymentInfo />) : (<Redirect to='/login' />)
+            }}></Route>
+            {/* <Route path='/store' component={() => <Store />}></Route> */}
+            <Route path='/category' component={CategoryPage}></Route>
+            <Route path='/item' component={Itempage}></Route>
+            <Route path='/login' component={LoginPage}></Route>
+            <Route path='/user' component={userPage}></Route>
+          </Switch>
+        </div>
+      </ScrollToTop>
     </HashRouter>
   );
 }
